@@ -10,7 +10,7 @@
 
 <script>
 
-    import { ChatMessageService } from './services/chatMessageService.js';
+    import { ChatMessageService } from './services/chatMessageService';
 
     export default {
 
@@ -24,7 +24,7 @@
         },
         async mounted(){
 
-            const messages = await ChatMessageService.getMessages();
+            const messages = await ChatMessageService().getMessages();
             this.$data.messages.push(... messages);
 
         },
@@ -37,7 +37,7 @@
                     sender: "YOU"
                 }
 
-                await ChatMessageService.submitMessage(message);
+                await ChatMessageService().submitMessage(message);
 
                 this.$data.messages.push(message);
 
